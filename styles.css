@@ -1,0 +1,246 @@
+/* Variables de colores */
+:root {
+    --primary-color: #0d4bf7;
+    --secondary-color: #ffffff;
+    --background-color: #defd96;
+    --card-bg: #fffdfd;
+    --text-color: #000000;
+    --text-light: #6c757d;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Barra de búsqueda */
+.search-container {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+button, select {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover, select:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Filtros */
+.filters {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+select {
+    padding: 10px 15px;
+    background-color: white;
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+
+/* Grid de publicaciones */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.post-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.post-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.post-user i {
+    margin-right: 8px;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.post-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-content {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.post-id {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: var(--text-light);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.post-footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.post-actions span {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.post-actions span:hover {
+    color: var(--primary-color);
+}
+
+.post-actions i {
+    margin-right: 5px;
+}
+
+/* Estados de carga y sin resultados */
+.loading, .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    display: none;
+    grid-column: 1 / -1;
+}
+
+.loading i, .no-results i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+.no-results p {
+    margin-top: 10px;
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+    
+    button, #searchInput, select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .users-grid {
+        grid-template-columns: 1fr;
+    }
+}

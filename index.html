@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Publicaciones</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Explorador de Publicaciones</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar por título o contenido...">
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> Buscar
+                </button>
+            </div>
+        </header>
+        
+        <div class="filters">
+            <select id="userFilter">
+                <option value="">Todos los usuarios</option>
+                <!-- Los usuarios se cargarán dinámicamente -->
+            </select>
+        </div>
+
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Cargando publicaciones...
+        </div>
+        
+        <div id="postsContainer" class="posts-grid">
+            <!-- Las publicaciones se cargan aquí dinámicamente -->
+        </div>
+        
+        <div id="noResults" class="no-results">
+            <i class="far fa-folder-open"></i>
+            <p>No se encontraron publicaciones que coincidan con la búsqueda.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
